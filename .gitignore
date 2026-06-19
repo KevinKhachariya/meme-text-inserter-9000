@@ -1,0 +1,8 @@
+*.mp4
+temp/
+node_modules/
+.DS_Store
+*.log
+test-*
+*.png
+public/vendor/

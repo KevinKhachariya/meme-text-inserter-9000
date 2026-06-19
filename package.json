@@ -1,0 +1,27 @@
+{
+  "name": "meme-text-inserter-9000",
+  "version": "1.0.0",
+  "private": true,
+  "license": "GPL-2.0-or-later",
+  "description": "Privacy-first browser meme editor with FFmpeg WASM. Upload media, add timed text, record movement, preview, and save.",
+  "keywords": ["meme", "gif", "editor", "ffmpeg", "wasm", "privacy", "browser"],
+  "homepage": "https://github.com/KevinKhachariya/meme-text-inserter-9000",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinKhachariya/meme-text-inserter-9000.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KevinKhachariya/meme-text-inserter-9000/issues"
+  },
+  "scripts": {
+    "postinstall": "node setup-vendor.js",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@ffmpeg/core": "^0.12.10",
+    "@ffmpeg/ffmpeg": "^0.12.15"
+  }
+}
