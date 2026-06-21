@@ -1,17 +1,17 @@
 # Attribution & Third-Party Licenses
 
-This project uses the following third-party software.
+This project incorporates the following third-party software.
 
 ---
 
-## @ffmpeg/core — GPL-2.0-or-later
+## FFmpeg (via @ffmpeg/core) — GPL-2.0-or-later
 
-**Source:** https://github.com/ffmpegwasm/ffmpeg.wasm  
-**License:** GNU General Public License v2.0 or later  
-**Files:** `public/vendor/ffmpeg-core.js`, `public/vendor/ffmpeg-core.wasm`
+**Source:** https://ffmpeg.org  
+**Upstream license files:** `COPYING.GPLv2` (GPL), `COPYING.LGPLv2.1` (LGPL)
 
-FFmpeg compiled to WebAssembly for browser-based video/image processing.
-The full source code of FFmpeg is available at https://ffmpeg.org.
+FFmpeg is compiled to WebAssembly via [ffmpegwasm](https://github.com/ffmpegwasm/ffmpeg.wasm)
+for browser-based video/image processing. The `@ffmpeg/core` package is distributed
+under **GPL-2.0-or-later**, which governs the combined work.
 
 > This program is free software: you can redistribute it and/or modify
 > it under the terms of the GNU General Public License as published by
@@ -23,13 +23,13 @@ The full source code of FFmpeg is available at https://ffmpeg.org.
 > MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 > GNU General Public License for more details.
 
+Full terms in [LICENSE](./LICENSE).
+
 ---
 
 ## @ffmpeg/ffmpeg — MIT
 
-**Source:** https://github.com/ffmpegwasm/ffmpeg.wasm  
-**License:** MIT  
-**Files:** `public/vendor/ffmpeg.js`, `public/vendor/814.ffmpeg.js`
+**Source:** https://github.com/ffmpegwasm/ffmpeg.wasm
 
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal
@@ -40,11 +40,3 @@ The full source code of FFmpeg is available at https://ffmpeg.org.
 >
 > The above copyright notice and this permission notice shall be included in
 > all copies or substantial portions of the Software.
-
----
-
-## Impact on licensing of this project
-
-Because `@ffmpeg/core` is licensed under **GPL-2.0-or-later**, the combined
-work (this project) must also be distributed under the GPL-2.0-or-later license.
-See the `LICENSE` file for the full terms.
