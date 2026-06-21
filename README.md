@@ -1,6 +1,6 @@
 # Meme Enhancer 9000
 
-![Demo](Demo.gif)
+![Demo](demo.gif)
 
 Private browser editor. Upload Image/Video/GIF, add text/image layers over the media, move them with recorded paths, and save as Image or GIF.
 
