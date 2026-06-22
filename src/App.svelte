@@ -23,12 +23,12 @@
   let mediaLoadToken = 0;
 
   const freeFontOptions = [
-    { label: 'Impact meme', value: 'Impact, Haettenschweiler, "Arial Black", sans-serif' },
-    { label: 'System clean', value: 'Inter, ui-sans-serif, system-ui, sans-serif' },
-    { label: 'Poster bold', value: 'Arial Black, Gadget, sans-serif' },
-    { label: 'Classic serif', value: 'Georgia, "Times New Roman", serif' },
-    { label: 'Mono caption', value: 'ui-monospace, SFMono-Regular, Consolas, monospace' },
-    { label: 'Casual', value: 'Comic Sans MS, Comic Sans, cursive' },
+    { label: 'System sans', value: 'system-ui, sans-serif' },
+    { label: 'Strong sans', value: 'ui-sans-serif, system-ui, sans-serif' },
+    { label: 'Classic serif', value: 'serif' },
+    { label: 'Mono caption', value: 'ui-monospace, monospace' },
+    { label: 'Casual script', value: 'cursive' },
+    { label: 'Display/fantasy', value: 'fantasy' },
   ] as const;
 
   async function loadMedia(file: File) {
@@ -367,7 +367,7 @@
           <div class="editor-card">
             <div class="editor-card-head">
               <strong>Style</strong>
-              <small>Free browser-safe font choices</small>
+              <small>Free generic browser font families; no paid fonts bundled</small>
             </div>
             <label>
               Font

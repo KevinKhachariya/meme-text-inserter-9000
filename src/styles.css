@@ -459,7 +459,7 @@ main.light .preview-image-content { outline-color: rgba(0, 0, 0, 0.1); }
 .overlay-handle.selected { outline: 2px dashed var(--accent); outline-offset: 5px; }
 
 .preview-text {
-  font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+  font-family: system-ui, sans-serif;
   line-height: 1.05;
   text-align: left;
   text-shadow: 3px 3px 0 #000, -3px 3px 0 #000, 3px -3px 0 #000, -3px -3px 0 #000;
