@@ -18,6 +18,8 @@ Private browser editor. Upload Image/Video/GIF, add text/image layers over the m
 - Move layers by dragging them on the preview
 - Record movement paths with GIF restart sync
 - Generate PNG/GIF preview and save through browser download
+- Desktop app packaging with Tauri for Windows, macOS, and Linux
+- Native desktop Save As dialog when running in the Tauri app
 
 ## Quick Start (no dev server)
 
@@ -36,6 +38,23 @@ Then open **http://localhost:9000**.
 > `Cross-Origin-Embedder-Policy`) — you can't just open `index.html` directly.
 > The built-in `server.js` handles this for you using only Node.js built-in modules,
 > no extra dependencies.
+
+## Desktop app
+
+This project includes a Tauri v2 desktop wrapper. The desktop app uses the same local-only Svelte/FFmpeg WASM frontend and adds a native Save As flow for exports.
+
+```bash
+npm install
+npm run desktop:dev
+```
+
+Build local desktop bundles:
+
+```bash
+npm run desktop:build
+```
+
+Release bundles are built by the GitHub Actions workflow template in `docs/github-release-workflow.yml` when installed as `.github/workflows/release.yml` and a `v*` tag is pushed, producing platform installers for GitHub Releases.
 
 ## Development (hot-reload dev server)
 

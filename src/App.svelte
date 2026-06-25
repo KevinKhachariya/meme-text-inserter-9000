@@ -194,20 +194,53 @@
     }
   }
 
-  function savePreview() {
+  async function savePreview() {
     if (!previewResult) return;
 
-    const url = URL.createObjectURL(previewResult.blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = previewResult.fileName;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    URL.revokeObjectURL(url);
+    try {
+      if ('__TAURI_INTERNALS__' in window) {
+        const [{ save }, { writeFile }] = await Promise.all([
+          import('@tauri-apps/plugin-dialog'),
+          import('@tauri-apps/plugin-fs'),
+        ]);
+        const extension = previewResult.fileName.split('.').pop()?.toLowerCase() === 'gif' ? 'gif' : 'png';
+        const savedPath = await save({
+          defaultPath: previewResult.fileName,
+          filters: [
+            extension === 'gif'
+              ? { name: 'GIF image', extensions: ['gif'] }
+              : { name: 'PNG image', extensions: ['png'] },
+            { name: 'All files', extensions: ['*'] },
+          ],
+        });
 
-    previewStatus = 'saved';
-    previewMessage = 'Saved. You can clear media to start again, or keep editing.';
+        if (!savedPath) {
+          previewMessage = 'Save cancelled.';
+          return;
+        }
+
+        const bytes = new Uint8Array(await previewResult.blob.arrayBuffer());
+        await writeFile(savedPath, bytes);
+        previewStatus = 'saved';
+        previewMessage = `Saved to ${savedPath}`;
+        return;
+      }
+
+      const url = URL.createObjectURL(previewResult.blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = previewResult.fileName;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+
+      previewStatus = 'saved';
+      previewMessage = 'Saved. You can clear media to start again, or keep editing.';
+    } catch (error) {
+      previewStatus = 'error';
+      previewMessage = error instanceof Error ? error.message : 'Could not save preview.';
+    }
   }
 
   function deleteSelectedLayer() {
